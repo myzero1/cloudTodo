@@ -5,6 +5,9 @@ Page({
   data:{
     image:null
   },
+  pageData:{
+    locationObj:{}
+  },
   selectImage:function(){
     wx.chooseImage({
       success: res => {
@@ -29,7 +32,8 @@ Page({
     todos.add({
       data:{
         title: event.detail.value.title,
-        image:this.data.image
+        image:this.data.image,
+        location: this.pageData.locationObj
       }
     }).then(res => {
       wx.showToast({
@@ -41,6 +45,22 @@ Page({
           })
         }
       })
+    })
+  },
+  chooseLocation:function(){
+    wx.chooseLocation({
+      success: res => {
+        console.log(res)
+
+        let locationObj = {
+          latitude: res.latitude,
+          longitude:res.longitude,
+          name:res.name,
+          address:res.address
+        }
+
+        this.pageData.locationObj = locationObj
+      },
     })
   }
 })

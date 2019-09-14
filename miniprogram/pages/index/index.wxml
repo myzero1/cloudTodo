@@ -1,7 +1,9 @@
 <van-cell-group>
   <block wx:for="{{tasks}}" >
-    <van-cell
-      title="{{item.title}}"
-    />
+    <navigator url="../todoInfo/todoInfo?id={{item._id}}">
+      <van-cell
+        title="{{item.title}}"
+      />
+    </navigator>
   </block>
 </van-cell-group>

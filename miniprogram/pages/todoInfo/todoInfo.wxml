@@ -7,8 +7,10 @@
   <van-cell
     wx:if="{{task.location}}"
     title="位置"
+    icon="location"
     border="{{false}}"
     value="{{task.location.name}}"
+    bind:click="viewLocation"
   />
 </van-cell-group>
 

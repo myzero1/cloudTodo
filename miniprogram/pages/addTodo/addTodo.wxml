@@ -1,4 +1,8 @@
 <form bindsubmit="onSubmit">
   <input name="title"></input>
+  <block wx:if="{{image}}">
+    <image src="{{image}}"></image>
+  </block>
+  <button bindtap="selectImage">选择图片</button>
   <button form-type="submit">提交</button>
 </form>

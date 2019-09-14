@@ -1,3 +1,10 @@
+<view class="plusBtn">
+  <navigator url="../addTodo/addTodo">
+    <van-icon name="plus" class="plusIcon"/>
+  </navigator>
+</view>
+
+
 <van-cell-group>
   <block wx:for="{{tasks}}" >
     <navigator url="../todoInfo/todoInfo?id={{item._id}}">

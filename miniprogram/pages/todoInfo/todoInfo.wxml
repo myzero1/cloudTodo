@@ -5,3 +5,5 @@
     value="{{task.status === 'in-progress' ? '已完成' : '进行中'}}"
   />
 </van-cell-group>
+
+<image wx:if="{{task.image}}" src="{{task.image}}"></image>

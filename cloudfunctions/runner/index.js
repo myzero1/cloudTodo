@@ -8,7 +8,20 @@ const todos = db.collection('todos')
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let myDate = new Date()
+  // 目标时区，东8区
+  const targetTimezone = -8;
+  // 当前时区与中时区时差，以min为维度
+  const dif = new Date().getTimezoneOffset();
+  // 本地时区时间 + 本地时区时差  = 中时区时间
+  // 目标时区时间 + 目标时区时差 = 中时区时间
+  // 目标时区时间 = 本地时区时间 + 本地时区时差 - 目标时区时差
+  // 东8区时间
+  let myDate = new Date().getTime() + dif * 60 * 1000 - (targetTimezone * 60 * 60 * 1000);
+  myDate = new Date(myDate); 
+
+  // console.log('new Date(east9time)', dif, new Date(east9time));
+
+  // let myDate = new Date()
   let year = myDate.getFullYear()
   let month = myDate.getMonth() + 1
   let day = myDate.getDate()

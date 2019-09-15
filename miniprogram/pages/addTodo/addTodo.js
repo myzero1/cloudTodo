@@ -52,13 +52,13 @@ Page({
         formId: event.detail.formId,
       }
     }).then(res => {
-      wx.cloud.callFunction({
-        name: 'msgMe',
-        data: {
-          formId: event.detail.formId,
-          taskId:res._id
-        }
-      })
+      // wx.cloud.callFunction({
+      //   name: 'msgMe',
+      //   data: {
+      //     formId: event.detail.formId,
+      //     taskId:res._id
+      //   }
+      // })
 
       wx.showToast({
         title: 'success',

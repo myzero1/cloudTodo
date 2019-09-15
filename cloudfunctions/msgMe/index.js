@@ -31,10 +31,13 @@ exports.main = async (event, context) => {
 
   const wxContext = cloud.getWXContext()
 
+  let task = await todos.doc(event.taskId).get()
+
   const touser = wxContext.OPENID; // 小程序用户 openId，从用户端传过来，指明发送消息的用户
+  const touser = task.data._openid;
   const form_id = event.formId; // 小程序表单的 form_id，或者是小程序微信支付的 prepay_id
 
-  let task = await todos.doc(event.taskId).get()
+  
 
   // 发送模板消息
   let wXMINIMessage = new WXMINIMessage();
@@ -48,16 +51,16 @@ exports.main = async (event, context) => {
         value: task.data.title // keyword1 的值
       },
       keyword2: {
-        value: task.data._id // keyword2 的值
+        value: task.data.title // keyword2 的值
       },
       keyword3: {
-        value: task.data._id // keyword2 的值
+        value: task.data.title // keyword2 的值
       },
       keyword4: {
         value: task.data.location.address // keyword2 的值
       }
     },
-    page: `pages/todoInfo/todoInfo?id=${task.data._id}` // 点击模板消息后，跳转的页面
+    page: `pages/todoInfo/todoInfo?id=${task.data.title}` // 点击模板消息后，跳转的页面
   });
 
   return result

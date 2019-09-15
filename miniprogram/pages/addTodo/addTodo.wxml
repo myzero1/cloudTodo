@@ -3,6 +3,17 @@
   <block wx:if="{{image}}">
     <image src="{{image}}"></image>
   </block>
+  <picker
+    mode="time"
+    value="{{time}}"
+    start="00:01"
+    end="23:01"
+    bindchange="bindTimeChange"
+  >
+    <view class="picker">
+      当前选择：{{time}}
+    </view>
+  </picker>
   <button bindtap="selectImage">选择图片</button>
   <button bindtap="chooseLocation">选择位置</button>
   <button form-type="submit">提交</button>

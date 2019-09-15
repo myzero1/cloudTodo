@@ -28,14 +28,28 @@ Page({
       }
     })
   },
+  bindTimeChange:function(event){
+    this.setData({
+      time:event.detail.value
+    })
+  },
   onSubmit:function(event){
     console.log(event.detail.formId)
+
+    let myDate = new Date()
+    let year = myDate.getFullYear()
+    let month = myDate.getMonth() + 1
+    let day = myDate.getDate()
+    let time = `${year}-${month}-${day} ${this.data.time}`
 
     todos.add({
       data:{
         title: event.detail.value.title,
         image:this.data.image,
-        location: this.pageData.locationObj
+        location: this.pageData.locationObj,
+        status:'in-progress',
+        time:time,
+        formId: event.detail.formId,
       }
     }).then(res => {
       wx.cloud.callFunction({

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "btoa": "^1.2.1",
     "got": "^9.6.0",
     "wx-server-sdk": "latest"
   }

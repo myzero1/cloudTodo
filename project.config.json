@@ -43,7 +43,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -63,6 +63,13 @@
 					"name": "todoInfo",
 					"pathName": "pages/todoInfo/todoInfo",
 					"query": "id=90b4093b5d789a2d17bc2bab5e1cadf7",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "http",
+					"pathName": "pages/http/http",
+					"query": "",
 					"scene": null
 				}
 			]

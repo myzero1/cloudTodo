@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "btoa": "^1.2.1",
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "wx-server-sdk": "latest"
   }
 }
